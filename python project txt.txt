@@ -1,0 +1,52 @@
+#python project banking managment system
+#done by allwin titus , nirmal kumar,karthick roshan
+#code started in 11/04/2023
+#code started timing 13:08
+
+from datetime import datetime
+
+class createuser:
+    def get_details(self):
+        self.fname=input("Enter the first name:")
+        self.lname=input("Enter the last  name:")
+        self.phone=input("Enter the phone number:")
+        self.dob=input("Enter the dob:")
+        self.aadhar=input("Enter the aadhar number:")
+        self.genrate_id_age(self.fname,self.lname,self.phone,self.dob)
+    def genrate_id_age(self,fname,lname,phone,dob):
+        self.user_id=self.fname[:2]+self.lname[:2]+self.phone[4:]
+        print(self.user_id)
+        self.sliced=self.dob[:4]
+        self.current_date=datetime.now()
+        self.systemdate=self.current_date.strftime("%Y")
+        print(self.systemdate)
+        print(self.sliced)
+        self.age=int(self.systemdate)-int(self.sliced)
+        print(self.age)
+
+        
+class check_admin:
+    def check(self,username,password):
+        if username=="admin123" and password=="password":
+            print("login done sucessfully")
+            print("welcome admin")
+            options=input("Enter the options to proceed:")
+            match options:
+                case "1":
+                    print("create new user")
+                    create_user=createuser()
+                    create_user.get_details()
+                case "2":
+                    print("transaction of user")
+        else:
+            print("the username password is incorrect")
+
+
+
+username=input("enter the user name:")
+password=input("enter the password:")
+c1=check_admin()
+c1.check(username,password)
+#create_user=createuser()
+#create_user.get_details()
+        
